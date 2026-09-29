@@ -91,7 +91,7 @@ def draw_ocean_ripples(
 
 
 # Streamlit UI 구성
-st.set_page_config(page_title="Moana Ocean Ripples", layout="centered")
+st.set_page_config(page_title="✨ Ocean Ripples Art", layout="centered")
 st.title("✨ Ocean Ripples Art")
 st.caption("Arts and Advanced Big Data Project")
 
