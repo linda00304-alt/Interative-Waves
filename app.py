@@ -1,28 +1,10 @@
-import io
 import math
 import random
 import matplotlib.pyplot as plt
 import numpy as np
-import requests
 import streamlit as st
 from matplotlib.colors import hsv_to_rgb
 from PIL import Image
-
-# 안정적인 모아나 포스터 이미지 URL
-IMAGE_URL = "https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/moana-movie-poster-transparent.png"
-
-
-@st.cache_data
-def load_poster_image():
-  headers = {
-      "User-Agent": (
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-          " (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-      )
-  }
-  response = requests.get(IMAGE_URL, headers=headers, timeout=10)
-  response.raise_for_status()
-  return Image.open(io.BytesIO(response.content)).convert("RGBA")
 
 
 def blob(center=(0.5, 0.5), r=0.3, points=200, wobble=0.15):
@@ -64,7 +46,7 @@ def draw_interactive_moana(
   fig, ax = plt.subplots(figsize=(6, 8))
   ax.axis("off")
 
-  # 배경에 이미지 표시
+  # 배경 이미지
   ax.imshow(moana_image, extent=[0, 1, 0, 1])
 
   palette = make_palette(6, mode=palette_mode)
@@ -84,7 +66,9 @@ st.title("Interactive Moana Poster")
 st.caption("A Moana-themed Generative Art Project")
 
 try:
-  moana_img = load_poster_image()
+  # GitHub 저장소의 moana.jpg 직접 열기
+  moana_img = Image.open("moana.jpg")
+
   st.sidebar.header("Controls")
   n_layers = st.sidebar.slider(
       "Ocean Depth", min_value=3, max_value=20, value=8, step=1
@@ -99,5 +83,7 @@ try:
 
   fig = draw_interactive_moana(moana_img, n_layers, wobble, palette_mode, seed)
   st.pyplot(fig)
-except Exception as e:
-  st.error(f"이미지를 불러오는 중에 문제가 발생했습니다: {e}")
+except FileNotFoundError:
+  st.error(
+      "GitHub 저장소에 'moana.jpg' 파일이 없습니다. 파일 이름을 확인해 주세요!"
+  )
