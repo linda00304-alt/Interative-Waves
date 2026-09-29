@@ -96,15 +96,15 @@ st.title("✨ Ocean Ripples Art")
 st.caption("Arts and Advanced Big Data Project")
 
 st.sidebar.header("Ocean Controls")
-n_layers = st.sidebar.slider("Ripple Layers (물결 겹수)", 5, 30, 15, step=1)
+n_layers = st.sidebar.slider("Ripple Layers", 5, 30, 15, step=1)
 wobble = st.sidebar.slider(
-    "Wave Wobble (물결 일렁임)", 0.05, 0.35, 0.15, step=0.01
+    "Wave Wobble", 0.05, 0.35, 0.15, step=0.01
 )
 sunline_power = st.sidebar.slider(
-    "Sunlight Intensity (햇살 윤슬 강도)", 0.1, 2.0, 1.0, step=0.1
+    "Sunlight Intensity", 0.1, 2.0, 1.0, step=0.1
 )
 foam_density = st.sidebar.slider(
-    "Foam Density (물보라 입자 수)", 50, 400, 200, step=10
+    "Foam Density", 50, 400, 200, step=10
 )
 seed = st.sidebar.slider("Random Seed", 0, 9999, 42)
 
