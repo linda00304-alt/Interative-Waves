@@ -67,7 +67,8 @@ st.caption("A Moana-themed Generative Art Project")
 
 try:
   # GitHub 저장소의 moana.jpg 직접 열기
-  moana_img = Image.open("moana.jpg")
+  moana_img = Image.open("Moana.jpg.jpg")
+
 
   st.sidebar.header("Controls")
   n_layers = st.sidebar.slider(
