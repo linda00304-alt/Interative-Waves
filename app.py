@@ -92,8 +92,8 @@ def draw_ocean_ripples(
 
 # Streamlit UI 구성
 st.set_page_config(page_title="Moana Ocean Ripples", layout="centered")
-st.title("🌊 Moana Ocean Ripples & Foams")
-st.caption("A Moana-themed Generative Art Project — Pure Code Implementation")
+st.title("✨ Ocean Ripples Art")
+st.caption("Arts and Advanced Big Data Project")
 
 st.sidebar.header("Ocean Controls")
 n_layers = st.sidebar.slider("Ripple Layers (물결 겹수)", 5, 30, 15, step=1)
